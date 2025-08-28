@@ -1,84 +1,231 @@
-# Filecoin Synapse dApp Tutorial
+# WarmWeb - Filecoin Warm Storage Landing Page
 
-This repo will serve with tutorial to demonstrate how to build a decentralized application (dApp) that interacts with Filecoin Synapse - a smart-contract based marketplace for storage and other services in the Filecoin ecosystem.
+A production-ready landing page for **WarmWeb** — a beginner-friendly static site hosting platform built on Filecoin's Warm Storage infrastructure, powered by **Filecoin Onchain Cloud** and **Synapse SDK**.
 
-## Overview
+## 🚀 Features
 
-This dApp showcases:
-- Connecting to Filecoin networks (Mainnet/Calibration)
-- Installing synapse-sdk to your project.
-- Depositing funds to Synapse contracts using USDFC token.
-- Uploading files to Filecoin through Synapse
+- **Modern Landing Page**: Clean, professional design with smooth animations
+- **Responsive Design**: Mobile-first approach that looks great on all devices
+- **Dark/Light Mode**: Theme toggle with localStorage persistence (defaults to dark mode)
+- **Interactive Demo**: Mock upload UI with real integration stubs for future development
+- **Accessibility**: WAI-ARIA compliant navigation, forms, and interactions
+- **Performance Optimized**: Built with Next.js 15 and optimized for Lighthouse scores
+- **SEO Ready**: Proper meta tags and structured markup
 
-## Prerequisites
+## 🛠 Tech Stack
 
-- Node.js 18+ and npm
-- A web3 wallet (like MetaMask)
-- Basic understanding of React and TypeScript
-- Get some tFIL tokens on Filecoin Calibration testnet [link to faucet](https://faucet.calibnet.chainsafe-fil.io/funds.html)
-- Get some USDFC tokens on Filecoin Calibration testnet [link to faucet](https://forest-explorer.chainsafe.dev/faucet/calibnet_usdfc)
+- **Framework**: [Next.js 15](https://nextjs.org) with App Router
+- **Styling**: [Tailwind CSS](https://tailwindcss.com) with custom design system
+- **Animations**: [Framer Motion](https://www.framer.com/motion/) for smooth transitions
+- **Icons**: [Lucide React](https://lucide.dev) for consistent iconography
+- **Components**: shadcn/ui architecture with custom implementations
+- **Typography**: Inter font with optimized loading
 
-## Getting Started
+## 📋 Project Structure
 
-1. Clone this repository:
-```bash
-git clone https://github.com/yourusername/fs-upload-app
-cd fs-upload-app
+```
+/
+├── app/
+│   ├── globals.css          # Global styles and CSS variables
+│   ├── layout.tsx          # Root layout with providers
+│   └── page.tsx            # Main landing page
+├── components/
+│   ├── sections/           # Page sections
+│   │   ├── Hero.tsx       # Hero section with mock upload UI
+│   │   ├── Features.tsx   # Features grid
+│   │   ├── HowItWorks.tsx # Timeline section
+│   │   ├── FAQ.tsx        # Accordion FAQ
+│   │   └── CTA.tsx        # Email signup section
+│   └── ui/                # Reusable UI components
+│       ├── Button.tsx     # Button variants
+│       ├── Card.tsx       # Card components
+│       ├── Accordion.tsx  # Accordion component
+│       ├── Navbar.tsx     # Navigation with mobile menu
+│       └── Footer.tsx     # Site footer
+├── lib/
+│   ├── utils.ts           # Utility functions (cn)
+│   └── warmweb.ts         # Integration stubs for future development
+└── providers/
+    └── ThemeProvider.tsx  # Theme management with localStorage
 ```
 
-2. Install dependencies:
-```bash
-npm install
+## 🚦 Getting Started
+
+### Prerequisites
+
+- Node.js 18+ 
+- npm, yarn, or pnpm
+
+### Installation
+
+1. **Clone the repository**
+   ```bash
+   git clone <repository-url>
+   cd warmweb
+   ```
+
+2. **Install dependencies**
+   ```bash
+   npm install
+   # or
+   yarn install
+   # or 
+   pnpm install
+   ```
+
+3. **Run the development server**
+   ```bash
+   npm run dev
+   # or
+   yarn dev
+   # or
+   pnpm dev
+   ```
+
+4. **Open your browser**
+   Navigate to [http://localhost:3000](http://localhost:3000)
+
+## 🎨 Design System
+
+### Color Palette
+- **Primary**: Cyan-based colors (`--primary: #06b6d4`) for Filecoin brand alignment
+- **Background**: Slate-based neutral backgrounds
+- **Text**: High contrast ratios for accessibility
+- **Theme**: Dark mode default with light mode toggle
+
+### Typography
+- **Font**: Inter with optimized loading
+- **Scale**: Responsive typography scales
+- **Hierarchy**: Clear heading and body text hierarchy
+
+### Components
+- **Cards**: Rounded corners with subtle shadows and hover effects  
+- **Buttons**: Multiple variants (default, outline, ghost)
+- **Forms**: Accessible with proper focus states
+- **Navigation**: Sticky header with smooth scrolling
+
+## 🔧 Configuration
+
+### Theme Customization
+Modify colors in `app/globals.css`:
+
+```css
+:root {
+  --primary: #06b6d4;        /* Cyan primary */
+  --background: #ffffff;      /* Light background */
+  /* ... */
+}
+
+.dark {
+  --primary: #06b6d4;        /* Cyan primary (dark) */
+  --background: #020617;      /* Dark background */
+  /* ... */
+}
 ```
 
-3. Run the development server:
-```bash
-npm run dev
+### Content Updates
+- **Hero Section**: Update copy in `components/sections/Hero.tsx`
+- **Features**: Modify feature list in `components/sections/Features.tsx`
+- **FAQ**: Update questions in `components/sections/FAQ.tsx`
+- **Navigation**: Modify links in `components/ui/Navbar.tsx`
+
+## 🔗 Integration Stubs
+
+The project includes typed integration stubs in `lib/warmweb.ts` for future development:
+
+```typescript
+// Mock functions ready for Filecoin integration
+export async function uploadToWarmStorage(files: File[]): Promise<UploadResult>
+export async function getReceipt(jobId: string): Promise<Receipt>  
+export async function getStorageStatus(jobId: string): Promise<UploadResult>
 ```
 
-Open [http://localhost:3000](http://localhost:3000) to view the dApp.
+These stubs are already connected to the UI and return mock data with realistic delays.
 
-## Key Components
+## 🚀 Production Deployment
 
-### Wallet Connection
-The dApp uses RainbowKit for seamless wallet connection, configured specifically for Filecoin networks:
-- Filecoin Mainnet
-- Filecoin Calibration (testnet)
+### Build Commands
+```bash
+npm run build    # Build for production
+npm run start    # Start production server
+npm run lint     # Run ESLint
+```
 
-### Query token and storage usage Balances
-Shows how to:
-- Get user FIL-USDFC-SynapseStorageUsage balances
-- hook used to query user balances [link](https://github.com/FIL-Builders/fs-upload-dapp/blob/main/hooks/useBalances.ts)
+### Deployment Platforms
 
-### Pay For Storage with USDFC
-Demonstrates how to:
-- Pay for storage by depositing funds to Synapse contracts using USDFC token
-- Handles one time payment for 10GB usage that persists 30days
-- Notifies repayment if less than 10days remain for paying synapse based on current usage
-- hook used to conduct a payment [link](https://github.com/FIL-Builders/fs-upload-dapp/blob/main/hooks/usePayment.ts)
+**Vercel** (Recommended)
+```bash
+npx vercel
+```
 
-### File Upload
-Shows how to:
-- Create a user-friendly file upload interface
-- Upload file to Filecoin using synapse-sdk
-- Monitor upload status
-- Download filecoin from Filecoin using synapse-sdk
-- hook used to upload a file [link](https://github.com/FIL-Builders/fs-upload-dapp/blob/main/hooks/useFileUpload.ts)
+**Netlify**
+```bash
+npm run build
+# Upload `out` folder to Netlify
+```
 
-## Learn More
+**Docker**
+```dockerfile
+FROM node:18-alpine
+# ... (standard Next.js Docker setup)
+```
 
-- [Filecoin synapse-sdk](https://github.com/FilOzone/synapse-sdk)
-- [USDFC Token Documentation](https://docs.secured.finance/usdfc-stablecoin/getting-started)
-- [Wagmi Documentation](https://wagmi.sh)
-- [RainbowKit Documentation](https://www.rainbowkit.com)
-- Best practices in React!
-  - [Tanstack Queries](https://tanstack.com/query/latest/docs/framework/react/guides/queries)
-  - [Tanstack Mutations](https://tanstack.com/query/latest/docs/framework/react/guides/mutations)
+## 📊 Performance
 
-## Contributing
+Target Lighthouse Scores:
+- **Performance**: ≥ 90
+- **Accessibility**: ≥ 95  
+- **Best Practices**: ≥ 90
+- **SEO**: ≥ 95
 
-Contributions are welcome! Please feel free to submit a Pull Request.
+Optimizations included:
+- Image optimization with Next.js
+- Font optimization with preloading
+- Code splitting with dynamic imports
+- Reduced motion support for accessibility
 
-## License
+## 🎯 Roadmap
 
-This project is licensed under the MIT License - see the LICENSE file for details.
+### Phase 1: Landing Page (Current)
+- ✅ Production-ready landing page
+- ✅ Mock upload interface  
+- ✅ Integration stubs
+- ✅ Responsive design
+- ✅ Accessibility compliance
+
+### Phase 2: Backend Integration
+- [ ] Connect to FilecoinWarmStorageService
+- [ ] Implement Synapse SDK integration
+- [ ] Add real file upload functionality
+- [ ] Deploy storage contracts
+
+### Phase 3: Full Platform
+- [ ] User authentication
+- [ ] Dashboard for managing sites
+- [ ] Custom domain support
+- [ ] Analytics and monitoring
+
+## 🤝 Contributing
+
+1. Fork the repository
+2. Create a feature branch (`git checkout -b feature/amazing-feature`)
+3. Commit your changes (`git commit -m 'Add amazing feature'`)
+4. Push to the branch (`git push origin feature/amazing-feature`)
+5. Open a Pull Request
+
+## 📄 License
+
+This project is licensed under the MIT License - see the [LICENSE](LICENSE) file for details.
+
+## 🙏 Acknowledgments
+
+- **Filecoin Foundation** for the decentralized storage infrastructure
+- **Synapse SDK** for simplified blockchain integration
+- **Tailwind CSS** and **shadcn/ui** for the design system foundation
+- **Next.js team** for the excellent React framework
+
+---
+
+**Ready to deploy decentralized websites on Filecoin?** 🚀
+
+Visit the live demo or contribute to making decentralized web hosting accessible to everyone.

@@ -33,18 +33,21 @@ export default function RootLayout({
   return (
     <html lang="en">
       <head>
-        <title>Fil services demo</title>
+        <title>WarmWeb - Host static sites on Filecoin Warm Storage</title>
         <meta
           name="description"
-          content="Demo dApp Powered by synapse-sdk. Upload files to Filecoin with USDFC."
+          content="Host static sites on Filecoin Warm Storage in minutes. Fast uploads, verifiable storage, easy retrieval. Powered by Filecoin Onchain Cloud."
         />
         <meta
           name="keywords"
-          content="Filecoin, Demo, synapse-sdk, pdp, upload, filecoin, usdfc"
+          content="WarmWeb, Filecoin, Warm Storage, Static Sites, PDP, Synapse SDK, Web Hosting, Decentralized Storage"
         />
-        <meta name="author" content="FIL-Builders" />
-        <meta name="viewport" content="width=device-width, initial-scale=0.6" />
+        <meta name="author" content="WarmWeb" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
         <link rel="icon" href="/filecoin.svg" />
+        <link rel="preconnect" href="https://fonts.googleapis.com" />
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossOrigin="" />
+        <link href="https://fonts.googleapis.com/css2?family=Inter:wght@100..900&display=swap" rel="stylesheet" />
       </head>
       <body>
         <GeolocationProvider
