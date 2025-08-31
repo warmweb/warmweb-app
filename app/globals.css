@@ -3,52 +3,73 @@
 @import "tailwindcss";
 
 :root {
-  --background: #ffffff;
-  --foreground: #171717;
-  --primary: #007bff;
-  --primary-foreground: #ffffff;
-  --secondary: #6c757d;
-  --secondary-foreground: #ffffff;
-  --border: #e5e7eb;
+  --background: 0 0% 100%;
+  --foreground: 222.2 84% 4.9%;
+  --card: 0 0% 100%;
+  --card-foreground: 222.2 84% 4.9%;
+  --primary: 186.2 91.4% 26.3%;
+  --primary-foreground: 197 37% 96%;
+  --secondary: 215 16.3% 46.9%;
+  --secondary-foreground: 215 20.2% 65.1%;
+  --muted: 215 27.9% 16.9%;
+  --muted-foreground: 215 16.3% 46.9%;
+  --accent: 197 37% 96%;
+  --accent-foreground: 222.2 84% 4.9%;
+  --destructive: 0 84.2% 60.2%;
+  --destructive-foreground: 0 0% 98%;
+  --border: 215 27.9% 16.9%;
+  --input: 215 27.9% 16.9%;
+  --ring: 186.2 91.4% 26.3%;
 }
 
 .dark {
-  --background: #0a0a0a;
-  --foreground: #ededed;
-  --primary: #007bff;
-  --primary-foreground: #ffffff;
-  --secondary: #6c757d;
-  --secondary-foreground: #ffffff;
-  --border: #2a2a2a;
+  --background: 222.2 84% 4.9%;
+  --foreground: 210 40% 98%;
+  --card: 222.2 84% 4.9%;
+  --card-foreground: 210 40% 98%;
+  --primary: 186.4 100% 42.2%;
+  --primary-foreground: 186.7 39.1% 20%;
+  --secondary: 215 27.9% 16.9%;
+  --secondary-foreground: 210 40% 98%;
+  --muted: 215 27.9% 16.9%;
+  --muted-foreground: 215 20.2% 65.1%;
+  --accent: 215 27.9% 16.9%;
+  --accent-foreground: 210 40% 98%;
+  --destructive: 0 62.8% 30.6%;
+  --destructive-foreground: 0 0% 98%;
+  --border: 215 27.9% 16.9%;
+  --input: 215 27.9% 16.9%;
+  --ring: 186.4 100% 42.2%;
 }
 
 body {
   background: var(--background);
   color: var(--foreground);
-  font-family: Arial, Helvetica, sans-serif;
+  font-family: Inter, system-ui, sans-serif;
+  font-feature-settings: "cv11", "ss01";
+  font-variation-settings: "opsz" 32;
+}
+
+* {
+  border-color: hsl(var(--border));
+}
+
+html {
+  scroll-behavior: smooth;
 }
 
 @layer base {
-  :root {
-    --color-background: var(--background);
-    --color-foreground: var(--foreground);
-    --color-border: var(--border);
-    --color-primary: var(--primary);
-    --color-secondary: var(--secondary);
+  * {
+    border-color: hsl(var(--border));
   }
-
-  .dark {
-    --color-background: var(--background);
-    --color-foreground: var(--foreground);
-    --color-border: var(--border);
-    --color-primary: var(--primary);
-    --color-secondary: var(--secondary);
+  body {
+    background: hsl(var(--background));
+    color: hsl(var(--foreground));
   }
 }
 
 @theme inline {
   --color-background: var(--background);
   --color-foreground: var(--foreground);
-  --font-sans: var(--font-geist-sans);
-  --font-mono: var(--font-geist-mono);
+  --font-sans: Inter, system-ui, sans-serif;
 }
