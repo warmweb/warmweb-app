@@ -1,4 +1,8 @@
-# WarmWeb - Filecoin Warm Storage Landing Page
+## Akindo Deliverable
+
+* [Notion Design Document](https://warmweb.notion.site/WarmWeb-Product-Design-25e97aa1ea2980f8a389ceb5cdecc766?source=copy_link)
+
+# WarmWeb
 
 A production-ready landing page for **WarmWeb** — a beginner-friendly static site hosting platform built on Filecoin's Warm Storage infrastructure, powered by **Filecoin Onchain Cloud** and **Synapse SDK**.
 
