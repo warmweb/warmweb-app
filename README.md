@@ -4,7 +4,7 @@
 
 # WarmWeb
 
-A production-ready landing page for **WarmWeb** — a beginner-friendly static site hosting platform built on Filecoin's Warm Storage infrastructure, powered by **Filecoin Onchain Cloud** and **Synapse SDK**.
+Websites That Last — Secured by Filecoin.
 
 ## 🚀 Features
 
